@@ -22,13 +22,6 @@ public class PrepareDeleteArticoloServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String idArticoloParam = request.getParameter("idArticolo");
 
-		/*if (!NumberUtils.isCreatable(idArticoloParam)) {
-			// qui ci andrebbe un messaggio nei file di log costruito ad hoc se fosse attivo
-			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
-			request.getRequestDispatcher("/index.jsp").forward(request, response);
-			return;
-		}*/
-		
 		try {
 			request.setAttribute("articoloDaEliminare", MyServiceFactory.getArticoloServiceInstance()
 					.caricaSingoloElemento(Long.parseLong(idArticoloParam)));
