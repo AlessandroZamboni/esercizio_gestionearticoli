@@ -58,14 +58,7 @@
 			   
 		</div>	
 	
-<!-- 	<div class='card-footer'>
-			    	 <a href="ExecuteDeleteArticoloServlet" class='btn btn-outline-danger btn-sm' style='width:80px'>
-			            <i class='fa fa-chevron-left'></i> Elimina
-			        </a>
-			        <a href="ListArticoliServlet" class='btn  btn-sm btn-outline-secondary' style='width:80px'>
-			            <i class='fa fa-chevron-left'></i> Back
-			        </a>		     
-	   </div>
+
 	
 	<!-- end main container -->	
 	</main>
