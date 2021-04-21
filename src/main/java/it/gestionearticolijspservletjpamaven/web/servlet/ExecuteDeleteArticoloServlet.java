@@ -11,16 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import it.gestionearticolijspservletjpamaven.model.Articolo;
 import it.gestionearticolijspservletjpamaven.service.MyServiceFactory;
 
-/**
- * Servlet implementation class ExecuteDeleteArticoloServlet
- */
 @WebServlet("/ExecuteDeleteArticoloServlet")
 public class ExecuteDeleteArticoloServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public ExecuteDeleteArticoloServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
