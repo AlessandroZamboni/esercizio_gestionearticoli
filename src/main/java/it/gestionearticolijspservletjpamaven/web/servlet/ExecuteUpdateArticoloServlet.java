@@ -13,9 +13,7 @@ import it.gestionearticolijspservletjpamaven.model.Articolo;
 import it.gestionearticolijspservletjpamaven.service.MyServiceFactory;
 import it.gestionearticolijspservletjpamaven.utility.UtilityArticoloForm;
 
-/**
- * Servlet implementation class ExecuteUpdateArticoloServlet
- */
+
 @WebServlet("/ExecuteUpdateArticoloServlet")
 public class ExecuteUpdateArticoloServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -33,13 +31,7 @@ public class ExecuteUpdateArticoloServlet extends HttpServlet {
 		String prezzoStringParam = request.getParameter("prezzo");
 		String dataArrivoStringParam = request.getParameter("dataArrivo");
 
-		// questa variabile mi serve in quanto sfrutto in un colpo la validazione
-		// della data ed il suo parsing che non posso fare senza un try catch
-		// a questo punto lo incapsulo in un metodo apposito
 		Date dataArrivoParsed = UtilityArticoloForm.parseDateArrivoFromString(dataArrivoStringParam);
-
-		// valido input tramite apposito metodo e se la validazione fallisce torno in
-		// pagina
 
 		if (!UtilityArticoloForm.validateInput(codiceParam, descrizioneParam, prezzoStringParam,
 				dataArrivoStringParam) || dataArrivoParsed == null) {
@@ -61,12 +53,11 @@ public class ExecuteUpdateArticoloServlet extends HttpServlet {
 			return;
 		}
 
-		// se sono qui i valori sono ok quindi posso creare l'oggetto da inserire
 		Articolo articoloInstance = new Articolo(codiceParam, descrizioneParam,
 				Integer.parseInt(prezzoStringParam), dataArrivoParsed);
 		
 		articoloInstance.setId(Long.parseLong(idParam));
-		// occupiamoci delle operazioni di business
+		
 		try {
 
 			MyServiceFactory.getArticoloServiceInstance().aggiorna(articoloInstance);
@@ -82,7 +73,6 @@ public class ExecuteUpdateArticoloServlet extends HttpServlet {
 
 		}
 
-		// andiamo ai risultati
 		request.getRequestDispatcher("/articolo/results.jsp").forward(request, response);
 	}
 
